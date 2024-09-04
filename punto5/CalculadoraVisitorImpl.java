@@ -1,6 +1,6 @@
 import java.text.DecimalFormat;
 
-public class TrigCalculatorVisitorImpl extends TrigCalculatorBaseVisitor<Double> {
+public class CalculadoraVisitorImpl extends TrigCalculatorBaseVisitor<Double> {
 
     private static final DecimalFormat df = new DecimalFormat("#.##");
 
