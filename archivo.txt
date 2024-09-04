@@ -1,5 +1,0 @@
-Este es un archivo de prueba.
-En este archivo, vamos a contar cuántas veces aparece una palabra clave.
-La palabra clave es "prueba", y la vamos a contar en este archivo de prueba.
-Si la palabra "prueba" aparece más de una vez, deberíamos ser capaces de contar todas las ocurrencias.
-Vamos a verificar si el conteo es correcto.
