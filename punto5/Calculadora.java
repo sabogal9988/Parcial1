@@ -18,15 +18,15 @@ public class Calc {
 
             // Crear el lexer y parser
             CharStream stream = CharStreams.fromString(input);
-            TrigCalculatorLexer lexer = new TrigCalculatorLexer(stream);
+            CalculadoraLexer lexer = new CalculadoraLexer(stream);
             CommonTokenStream tokens = new CommonTokenStream(lexer);
-            TrigCalculatorParser parser = new TrigCalculatorParser(tokens);
+            CalculadoraParser parser = new CalculadoraParser(tokens);
 
             // Parsear la entrada
             ParseTree tree = parser.inicio();
 
             // Crear el visitor y evaluar el árbol
-            TrigCalculatorVisitorImpl visitor = new TrigCalculatorVisitorImpl();
+            CalculadoraVisitorImpl visitor = new CalculadoraVisitorImpl();
             visitor.visit(tree);
         }
 
