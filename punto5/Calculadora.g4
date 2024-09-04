@@ -2,29 +2,29 @@ grammar Calculadora;
 
 // Reglas léxicas (tokens)
 NUMERO: [0-9]+ ('.' [0-9]+)?;  // Soporte para números enteros y decimales
-ADD: '+';
-SUB: '-';
-MUL: '*';
-DIV: '/';
-POW: '^';
-EQUAL: '=';
-LPAREN: '(';
-RPAREN: ')';
-SIN: 'sin';
-COS: 'cos';
-TAN: 'tan';
+SUMA: '+';
+RESTA: '-';
+MULTIPLICACION: '*';
+DIVISION: '/';
+POTENCIA: '^';
+ASIGNACION: '=';
+ABRIR_PAREN: '(';
+CERRAR_PAREN: ')';
+SENO: 'sin';
+COSENO: 'cos';
+TANGENTE: 'tan';
 
 // Manejo de espacios en blanco (opcional)
-WS: [ \t\r\n]+ -> skip;  // Ignorar espacios en blanco
+ESPACIOS: [ \t\r\n]+ -> skip;  // Ignorar espacios en blanco
 
 // Reglas sintácticas
-inicio: (printExpr)* EOF;
+inicio: (imprimirExpresion)* EOF;
 
-printExpr: expresion;
+imprimirExpresion: expresion;
 
-expresion:   termino ((ADD | SUB) termino)*;
-termino:     factor ((MUL | DIV) factor)*;
-factor:      (SUB)? base (POW factor)?;
-base:        NUMERO | LPAREN expresion RPAREN | trigFunc;
+expresion:   termino ((SUMA | RESTA) termino)*;
+termino:     factor ((MULTIPLICACION | DIVISION) factor)*;
+factor:      (RESTA)? base (POTENCIA factor)?;
+base:        NUMERO | ABRIR_PAREN expresion CERRAR_PAREN | funcionTrigonometrica;
 
-trigFunc: (SIN | COS | TAN) LPAREN expresion RPAREN;
+funcionTrigonometrica: (SENO | COSENO | TANGENTE) ABRIR_PAREN expresion CERRAR_PAREN;
